@@ -10,6 +10,10 @@ int main()
     DataGate *t = new TemperaturSensor;
     double werte[100]={};
 
+    DataGate *mySensors[2];
+    mySensors[0] = f;
+    mySensors[1] = t;
+
     cout << f->getSensorType() << endl;
     f->fetchData(werte);
 
@@ -25,6 +29,15 @@ int main()
     {
         cout << werte[i] << endl;
     }
-
+    cout << "***********************" << endl;
+    for(int i=0 ; i < 2 ; i++)
+    {
+        cout << mySensors[i]->getSensorType() << endl;
+        mySensors[i]->fetchData(werte);
+        for(int j=0 ; j < mySensors[i]->dataSize() ; j++)
+        {
+            cout << werte[j] << endl;
+        }
+    }
     return 0;
 }

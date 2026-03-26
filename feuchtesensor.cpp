@@ -4,7 +4,7 @@ FeuchteSensor::FeuchteSensor()
 {
     //zum Testen 10 Zufallswerte erzeugen
     srand(time(NULL));
-    for(int i=0 ; i < 10 ; i++)
+    for(int i=0 ; i < messdatasize ; i++)
     {
         messdata[i] = (rand() % 1001)/10.0;
     }
@@ -12,12 +12,12 @@ FeuchteSensor::FeuchteSensor()
 
 string FeuchteSensor::getSensorType()
 {
-    return "Luftfeuchte";
+    return type;
 }
 
 void FeuchteSensor::fetchData(double data[])
 {
-    for(int i=0 ; i < 10 ; i++)
+    for(int i=0 ; i < messdatasize ; i++)
     {
         data[i] = messdata[i];
     }
@@ -25,5 +25,5 @@ void FeuchteSensor::fetchData(double data[])
 
 int FeuchteSensor::dataSize()
 {
-    return 10;
+    return messdatasize;
 }

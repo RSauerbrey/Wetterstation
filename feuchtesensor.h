@@ -7,6 +7,8 @@ class FeuchteSensor : public DataGate
 {
 private:
     double messdata[10];
+    int messdatasize = 10;
+    string type = "Feuchtesensor";
 public:
     FeuchteSensor();
     string getSensorType();
